@@ -17,9 +17,9 @@ namespace ProjetoFilmes.API.Data
         public void Seed()
         {
             _builder.Entity<Filme>().HasData(
-                new Filme { FilmeID = 1, Titulo = "The Last of Us", DataLancamento = DateTime.Parse("2023-01-15"), Genero = Genero.Drama },
-                new Filme { FilmeID = 2, Titulo = "Game of Thrones", DataLancamento = DateTime.Parse("2011-04-17"), Genero = Genero.Drama },
-                new Filme { FilmeID = 3, Titulo = "Avatar: The Way of Water", DataLancamento = DateTime.Parse("2022-12-15"), Genero = Genero.FicçãoCientífica }
+                new Filme { FilmeID = 1, Titulo = "The Last of Us", DataLancamento = DateTime.Parse("2023-01-15"), Genero = Genero.Drama, Descricao = "After a global pandemic destroys civilization, a hardened survivor takes charge of a 14-year-old girl who may be humanity's last hope." },
+                new Filme { FilmeID = 2, Titulo = "Game of Thrones", DataLancamento = DateTime.Parse("2011-04-17"), Genero = Genero.Drama, Descricao= "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia." },
+                new Filme { FilmeID = 3, Titulo = "Avatar: The Way of Water", DataLancamento = DateTime.Parse("2022-12-15"), Genero = Genero.FicçãoCientífica, Descricao = "Jake Sully lives with his newfound family formed on the extrasolar moon Pandora." }
                 );
 
             _builder.Entity<Ator>().HasData(
@@ -29,8 +29,8 @@ namespace ProjetoFilmes.API.Data
                 );
 
             _builder.Entity<Utilizador>().HasData(
-                new Utilizador { UtilizadorID = 1, Nome = "Joao", UserName = "UtilizadorTeste" },
-                new Utilizador { UtilizadorID = 2, Nome = "Semedo", UserName = "UtilizadorTeste2" }
+                new Utilizador { UtilizadorID = 1, Nome = "Joao", UserName = "UserOne" },
+                new Utilizador { UtilizadorID = 2, Nome = "Semedo", UserName = "UserTwo" }
                 );
 
             _builder.Entity<Avaliacao>().HasData(

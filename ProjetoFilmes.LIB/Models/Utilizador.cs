@@ -12,6 +12,9 @@ namespace ProjetoFilmes.LIB.Models
     {
         [Key]
         public int UtilizadorID { get; set; }
+        [Required(ErrorMessage = " Espaço e Numeros não permitidos")]
+        [StringLength(10, MinimumLength = 5)]
+        [Display(Name = "Username")]
         public string UserName { get; set; }
         [ValidateNever]
         public ICollection<Avaliacao> Avaliacao { get; set; }

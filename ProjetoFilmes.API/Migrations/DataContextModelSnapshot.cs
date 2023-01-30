@@ -168,7 +168,12 @@ namespace ProjetoFilmes.API.Migrations
                     b.Property<DateTime>("DataLancamento")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("Genero")
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<int>("Genero")
                         .HasColumnType("int");
 
                     b.Property<string>("Titulo")
@@ -186,6 +191,7 @@ namespace ProjetoFilmes.API.Migrations
                             FilmeID = 1,
                             AvaliacaoAvg = (short)0,
                             DataLancamento = new DateTime(2023, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Descricao = "After a global pandemic destroys civilization, a hardened survivor takes charge of a 14-year-old girl who may be humanity's last hope.",
                             Genero = 2,
                             Titulo = "The Last of Us"
                         },
@@ -194,6 +200,7 @@ namespace ProjetoFilmes.API.Migrations
                             FilmeID = 2,
                             AvaliacaoAvg = (short)0,
                             DataLancamento = new DateTime(2011, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Descricao = "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.",
                             Genero = 2,
                             Titulo = "Game of Thrones"
                         },
@@ -202,6 +209,7 @@ namespace ProjetoFilmes.API.Migrations
                             FilmeID = 3,
                             AvaliacaoAvg = (short)0,
                             DataLancamento = new DateTime(2022, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Descricao = "Jake Sully lives with his newfound family formed on the extrasolar moon Pandora.",
                             Genero = 7,
                             Titulo = "Avatar: The Way of Water"
                         });
@@ -228,7 +236,8 @@ namespace ProjetoFilmes.API.Migrations
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.HasKey("UtilizadorID");
 
@@ -241,7 +250,7 @@ namespace ProjetoFilmes.API.Migrations
                             DataNascimento = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Genero = false,
                             Nome = "Joao",
-                            UserName = "UtilizadorTeste"
+                            UserName = "UserOne"
                         },
                         new
                         {
@@ -249,7 +258,7 @@ namespace ProjetoFilmes.API.Migrations
                             DataNascimento = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Genero = false,
                             Nome = "Semedo",
-                            UserName = "UtilizadorTeste2"
+                            UserName = "UserTwo"
                         });
                 });
 

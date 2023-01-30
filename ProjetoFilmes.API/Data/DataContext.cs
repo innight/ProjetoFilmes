@@ -23,7 +23,5 @@ namespace ProjetoFilmes.API.Data
             // Seed database with authors and books for demo
             new DbInitializer(modelBuilder).Seed();
         }
-
-
     }
 }

@@ -10,27 +10,38 @@ namespace ProjetoFilmes.LIB.Models
     {
         Ação, Comédia, Drama, Documentário, Suspense, Terror, Thriller, FicçãoCientífica
     }
+
     public class Filme
     {
         [Key]
         public int FilmeID { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Preencha o titulo")]
         [StringLength(80)]
-        public string Titulo { get; set; }
+        public string Titulo { get; set; } = null!;
 
+        [Required(ErrorMessage = "Preencha a Data Lançamento")]
         [DataType(DataType.Date)]
+        [Display(Name = "Data Lancamento")]
+       
         public DateTime DataLancamento { get; set; }
-        //public string? Genre { get; set; }
+
+        [Required(ErrorMessage = "Preencha Descricão")]
+        [DataType(DataType.Text)]
+        [MaxLength(250)]
+        public string? Descricao { get; set; }
+
         public short AvaliacaoAvg { get; set; } = 0;
+        [Required]
+        [Range(1, 7, ErrorMessage = "Preencha Genero 1 - 7")]
         public Genero? Genero { get; set; }
 
         [ValidateNever]
-        public ICollection<Ator> Atores { get; set; }
+        public ICollection<Ator>? Atores { get; set; }
 
         [ValidateNever]
-        public ICollection<Diretor> Diretores { get; set; }
+        public ICollection<Diretor>? Diretores { get; set; }
 
         [ValidateNever]
-        public ICollection<Avaliacao> Avaliacoes { get; set; }
+        public ICollection<Avaliacao>? Avaliacoes { get; set; }
     }
 }
